@@ -1,17 +1,16 @@
 <template>
-  <div class="Schedule" id="schedule">
-    <div class="Schedule__container">
-      <div class="Schedule__content">
-        <h2 class="Schedule__title">Расписание</h2>
-        <a href="/" class="Schedule__download">
-          <img src="~/assets/images/Schedule/Schedule.svg" alt="">
-          Смотреть расписание
+  <div class="TimerDragon" id="schedule">
+    <div class="TimerDragon__container">
+      <div class="TimerDragon__content">
+        <h2 class="TimerDragon__title">Расписание</h2>
+        <p class="TimerDragon__description">Чтобы ребенок рос здоровым и физически развитым, важно с детства прививать любовь к спорту. </p>
+        <a href="/" class="TimerDragon__download">
+          <img src="~/assets/images/Timerkids/Kid.svg" alt="">
+          Зарегистрировать ребенка
         </a>
       </div>
-      <div class="Schedule__images">
-        <img src="~/assets/images/Schedule/Photos/1.jpg" alt="1">
-        <img src="~/assets/images/Schedule/Photos/2.jpg" alt="2">
-        <img src="~/assets/images/Schedule/Photos/3.jpg" alt="3">
+      <div class="TimerDragon__images">
+        <img src="~/assets/images/Timerkids/Timer_dragon.svg" alt="">
       </div>
     </div>
   </div>
@@ -27,14 +26,20 @@ export default {}
 @import "assets/styles/variables";
 @import "assets/styles/mixins";
 
-.Schedule {
-  padding: 180px 0 120px 0;
-  background-color: #fff;
+.TimerDragon {
+  margin: 80px 0;
+  @media (max-width: 1024px) {
+    padding-top: 280px;
+    text-align: center;
+  }
+  @media (max-width: 756px) {
+    padding-top: 140px;
+  }
   &__container {
     @include layout;
     position: relative;
     align-items: center;
-    @media (max-width: 756px) {
+    @media (max-width: 1024px) {
      display: flex;
       justify-content: center;
     }
@@ -44,14 +49,15 @@ export default {}
     flex-direction: column;
     background-color: #EFEFEF;
     border-radius: 2px;
-    grid-column: 1 / 11;
-    padding: 100px 0 100px 100px;
+    grid-column: 1 / 13;
+    padding: 56px;
     @media (max-width: 1024px) {
-      padding: 80px 0 80px 32px;
-      grid-column: 1 / 13;
+      padding: 56px 32px;
+      text-align: center;
+      align-items: center;
     }
     @media (max-width: 756px) {
-      padding: 200px 0 56px 0;
+      padding: 56px 0;
       align-items: center;
       width: 100%;
     }
@@ -61,11 +67,23 @@ export default {}
     @include titleH2;
     margin-bottom: 32px;
   }
+  &__description {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 24px;
+    max-width: 400px;
+    @media (max-width: 1024px) {
+      text-align: center;
+      max-width: 100%;
+      padding: 0 16px;
+    }
+  }
   &__download {
     display: flex;
     align-items: center;
     width: fit-content;
     text-decoration: none;
+    text-align: left;
     color: $black;
     font-size: 20px;
     line-height: 20px;
@@ -75,52 +93,18 @@ export default {}
   }
   &__images {
     position: absolute;
-    width: 520px;
-    height: 420px;
-    right: 0;
-    margin-right: 16px;
+    bottom: 0;
+    right: 56px;
     @media (max-width: 1024px) {
-      width: 400px;
-      height: 320px;
+      z-index: -1;
+      bottom: 230px;
+      right: auto;
     }
     @media (max-width: 756px) {
-      top: -170px;
-      right: auto;
-      width: 300px;
-      margin: 0;
-    }
-    img {
-      position: absolute;
-      @include imageShadow;
-      &:nth-child(1) {
-        z-index: 3;
-        width: 312px;
-        right: 32px;
+      img {
+        width: 320px;
       }
-      &:nth-child(2) {
-        z-index: 2;
-        width: 250px;
-        left: 0;
-        bottom: 32px;
-      }
-      &:nth-child(3) {
-        z-index: 1;
-        width: 380px;
-        right: 0;
-        bottom: 0;
-      }
-      @media (max-width: 1024px) {
-        &:nth-child(1) {
-          width: 240px;
-        }
-        &:nth-child(2) {
-          width: 200px;
-          left: 0;
-        }
-        &:nth-child(3) {
-          width: 280px;
-        }
-      }
+
     }
   }
 }

@@ -1,17 +1,17 @@
 <template>
-  <div class="Schedule" id="schedule">
-    <div class="Schedule__container">
-      <div class="Schedule__content">
-        <h2 class="Schedule__title">Расписание</h2>
-        <a href="/" class="Schedule__download">
-          <img src="~/assets/images/Schedule/Schedule.svg" alt="">
-          Смотреть расписание
+  <div class="Research" id="research">
+    <div class="Research__container">
+      <div class="Research__content">
+        <h2 class="Research__title">Проведи незабываемые выходные в Казани</h2>
+        <a href="https://inde.io/article/5018-kazanskiy-uikend-chto-delat-v-stolitse-tatarstana-esli-vy-priehali-na-odin-dva-ili-tri-dnya-obnovleno" target="_blank" class="Research__download">
+          <img src="~/assets/images/Research/Location.svg" alt="">
+          Исследовать город
         </a>
       </div>
-      <div class="Schedule__images">
-        <img src="~/assets/images/Schedule/Photos/1.jpg" alt="1">
-        <img src="~/assets/images/Schedule/Photos/2.jpg" alt="2">
-        <img src="~/assets/images/Schedule/Photos/3.jpg" alt="3">
+      <div class="Research__images">
+        <img src="~/assets/images/Research/Photos/1.jpg" alt="1">
+        <img src="~/assets/images/Research/Photos/2.jpg" alt="2">
+        <img src="~/assets/images/Research/Photos/3.jpg" alt="3">
       </div>
     </div>
   </div>
@@ -27,9 +27,8 @@ export default {}
 @import "assets/styles/variables";
 @import "assets/styles/mixins";
 
-.Schedule {
+.Research {
   padding: 180px 0 120px 0;
-  background-color: #fff;
   &__container {
     @include layout;
     position: relative;
@@ -60,6 +59,10 @@ export default {}
   &__title {
     @include titleH2;
     margin-bottom: 32px;
+    max-width: 320px;
+    @media (max-width: 756px) {
+      text-align: center;
+    }
   }
   &__download {
     display: flex;
