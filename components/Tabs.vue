@@ -62,6 +62,9 @@ export default {
     &:hover {
       background-color: rgba(247, 194, 77, 0.1);;
     }
+    @media (max-width: 756px) {
+      width: 170px;
+    }
   }
 }
 </style>

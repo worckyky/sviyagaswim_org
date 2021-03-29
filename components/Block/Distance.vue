@@ -101,6 +101,7 @@ export default {
   @media (max-width: 756px) {
     &__tabs {
       overflow-x: scroll;
+      padding-bottom: 24px;
     }
   }
 

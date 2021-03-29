@@ -17,8 +17,7 @@
     </div>
     <div class="Header__links" :class="activeMobile && 'Header__links_active'">
       <a
-        href="#"
-        v-scroll-to="`#${link.hash}`"
+        :href="`#${link.hash}`"
         v-for="(link, i) of links"
         :key="i"
         class="Header__links-elem"
@@ -27,8 +26,7 @@
         <img :src="require(`~/assets/images/Header/Links/${link.hash}.svg`)" alt="">
         <span class="Header__links-elem-text"
               :class="activeLink === link.name ? 'Header__links-elem-text_active' : null">{{ link.name }}</span>
-      </a
-        href="">
+      </a>
     </div>
   </header>
 </template>

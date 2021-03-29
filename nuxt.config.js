@@ -41,15 +41,7 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    ['vue-scrollto/nuxt',
-      {
-        duration: 1000,
-        offset() {
-          return window.innerWidth <= 768 ? -60 : 0
-        },
-      },]
-  ],
+  modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}

@@ -12,8 +12,7 @@
   "dependencies": {
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3",
-    "vue-carousel": "^0.18.0",
-    "vue-scrollto": "^2.20.0"
+    "vue-carousel": "^0.18.0"
   },
   "devDependencies": {
     "node-sass": "^5.0.0",
