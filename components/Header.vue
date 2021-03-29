@@ -16,15 +16,19 @@
       </div>
     </div>
     <div class="Header__links" :class="activeMobile && 'Header__links_active'">
-      <a :href="'#' + link.hash" v-for="(link, i) of links"
-         :key="i"
-         class="Header__links-elem"
-         @click="openMenu"
-         @mouseenter="showActive(link.name)">
+      <a
+        href="#"
+        v-scroll-to="`#${link.hash}`"
+        v-for="(link, i) of links"
+        :key="i"
+        class="Header__links-elem"
+        @click="openMenu"
+        @mouseenter="showActive(link.name)">
         <img :src="require(`~/assets/images/Header/Links/${link.hash}.svg`)" alt="">
         <span class="Header__links-elem-text"
               :class="activeLink === link.name ? 'Header__links-elem-text_active' : null">{{ link.name }}</span>
-      </a>
+      </a
+        href="">
     </div>
   </header>
 </template>
@@ -92,9 +96,11 @@ export default {
   height: 100%;
   background-color: $white;
   z-index: 100;
+
   &__burger {
     display: none;
   }
+
   @media (max-width: 620px) {
     position: fixed;
     width: 100%;
@@ -122,6 +128,7 @@ export default {
       line-height: 14px;
       text-transform: uppercase;
       cursor: pointer;
+
       p {
         margin-right: 8px;
       }
@@ -131,6 +138,7 @@ export default {
         background-color: $black;
         width: 22px;
         position: relative;
+
         &:nth-child(1), &:nth-last-child(1) {
           height: 2px;
           display: block;
@@ -154,8 +162,10 @@ export default {
         -ms-transition: ease-in-out 0.2s;
         -o-transition: ease-in-out 0.2s;
         transition: ease-in-out 0.2s;
+
         span {
           width: 0;
+
           &:nth-child(1) {
             transform: rotate(45deg);
             top: 0;
