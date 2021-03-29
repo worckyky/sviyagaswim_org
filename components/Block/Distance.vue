@@ -100,7 +100,8 @@ export default {
 
   @media (max-width: 756px) {
     &__tabs {
-      overflow-x: scroll;
+      overflow-x : scroll !important;
+      -webkit-overflow-scrolling: touch;
       padding-bottom: 24px;
     }
   }

@@ -4,6 +4,9 @@
       <div class="Footer__logos">
         <img src="~/assets/images/Main/Partners/KM.svg" alt="">
         <img src="~/assets/images/Main/Partners/AWMM.svg" alt="">
+        <img
+             src="~/assets/images/Main/Partners/Timerman.svg"
+             alt="">
       </div>
       <div class="Footer__main Footer__structure">
         <h2>Главное</h2>
@@ -111,6 +114,9 @@ export default {
     grid-column: 1 / 4;
     display: flex;
     flex-direction: column;
+    .Timer-logo {
+      width: 56px;
+    }
     @media (max-width: 920px) {
       grid-column: 1 / 3;
     }
@@ -124,9 +130,9 @@ export default {
       flex-direction: row;
       margin-bottom: 32px;
       img {
-        width: 200px;
+        width: 120px;
         margin-bottom: 0;
-        margin-right: 56px;
+        margin-right: 32px;
         &:nth-last-child(1) {
           margin-right: unset;
         }
@@ -134,8 +140,12 @@ export default {
     }
     @media (max-width: 480px) {
       justify-content: center;
+      flex-direction: column;
+      align-items: center;
       img {
-        margin-right: 16px;
+        width: 140px;
+        margin-right: 0;
+        margin-bottom: 24px;
       }
     }
   }
