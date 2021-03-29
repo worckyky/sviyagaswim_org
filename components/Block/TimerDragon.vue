@@ -27,7 +27,7 @@ export default {}
 @import "assets/styles/mixins";
 
 .TimerDragon {
-  margin: 80px 0;
+  margin: 110px 0;
   @media (max-width: 1024px) {
     padding-top: 280px;
     text-align: center;
@@ -97,14 +97,13 @@ export default {}
     right: 56px;
     @media (max-width: 1024px) {
       z-index: -1;
-      bottom: 230px;
+      bottom: 270px;
       right: auto;
     }
     @media (max-width: 756px) {
       img {
         width: 320px;
       }
-
     }
   }
 }
