@@ -1,5 +1,5 @@
 <template>
-  <div class="Timerkids" id="Timerkids">
+  <div class="Timerkids" id="timerkids">
     <div class="Timerkids__container">
       <div class="Timerkids__slider">
         <div class="Timerkids__slider-navigation">
