@@ -103,24 +103,39 @@ export default {
       overflow-x : scroll !important;
       -webkit-overflow-scrolling: touch;
       padding-bottom: 24px;
+
       &::-webkit-scrollbar {
         -webkit-appearance: none;
+        width: 7px;
       }
-
-      &::-webkit-scrollbar:horizontal {
-        height: 12px;
-      }
-
       &::-webkit-scrollbar-thumb {
-        background-color: $gray600;
-        border-radius: 10px;
-        border: 2px solid #ffffff;
+        border-radius: 4px;
+        height: 4px;
+        background-color: rgba(0,0,0,.5);
+        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.2);
       }
-
       &::-webkit-scrollbar-track {
         border-radius: 10px;
         background-color: $gray300;
       }
+      //&::-webkit-scrollbar {
+      //  -webkit-appearance: none;
+      //}
+      //
+      //&::-webkit-scrollbar:horizontal {
+      //  height: 12px;
+      //}
+      //
+      //&::-webkit-scrollbar-thumb {
+      //  background-color: $gray600;
+      //  border-radius: 10px;
+      //  border: 2px solid #ffffff;
+      //}
+      //
+      //&::-webkit-scrollbar-track {
+      //  border-radius: 10px;
+      //  background-color: $gray300;
+      //}
       //&::-webkit-scrollbar {
       //  -webkit-appearance: none;
       //  width: 4px;
