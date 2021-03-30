@@ -103,7 +103,9 @@ export default {
       overflow-x : scroll !important;
       -webkit-overflow-scrolling: touch;
       padding-bottom: 24px;
+
       &::-webkit-scrollbar {
+        -webkit-appearance: none;
         width: 4px;
         height: 4px;
         border: 1px solid #d5d5d5;
