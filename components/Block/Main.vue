@@ -4,7 +4,7 @@
       <div class="Main__content">
         <div class="Main__logo">
           <img src="~/assets/images/Main/Partners/KM.svg" alt="">
-          <img src="~/assets/images/Main/Partners/AWMM.svg" alt="">
+          <a href="https://www.worldmarathonmajors.com/" target="_blank"><img src="~/assets/images/Main/Partners/AWMM.svg" alt=""></a>
         </div>
         <p class="Main__data">2 мая 2021</p>
         <h1 class="Main__title">

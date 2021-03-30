@@ -179,6 +179,7 @@ export default {
           }
           .disabled {
             background-color: #DCDCDC;
+            border: 1px solid #EFEFEF;
             color: #A7A7A7;
             pointer-events: none;
           }
@@ -228,11 +229,21 @@ export default {
           a {
             padding: 8px 16px;
             background-color: $yellow;
+            border: 1px solid $yellow;
             width: fit-content;
             text-decoration: none;
             font-size: 16px;
             line-height: 24px;
             margin: 0 auto;
+            -webkit-transition: ease-in-out 0.2s;
+            -moz-transition: ease-in-out 0.2s;
+            -ms-transition: ease-in-out 0.2s;
+            -o-transition: ease-in-out 0.2s;
+            transition: ease-in-out 0.2s;
+            &:hover {
+              background-color: $white;
+              border: 1px solid $yellow;
+            }
           }
         }
       }

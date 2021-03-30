@@ -3,10 +3,10 @@
     <div class="Footer__container">
       <div class="Footer__logos">
         <img src="~/assets/images/Main/Partners/KM.svg" alt="">
-        <img src="~/assets/images/Main/Partners/AWMM.svg" alt="">
-        <img
-             src="~/assets/images/Main/Partners/Timerman.svg"
-             alt="">
+        <a href="https://www.worldmarathonmajors.com/" target="_blank"><img src="~/assets/images/Main/Partners/AWMM.svg" alt=""></a>
+        <a href="https://timerman.org/" target="_blank"> <img
+          src="~/assets/images/Main/Partners/Timerman.svg"
+          alt=""></a>
       </div>
       <div class="Footer__main Footer__structure">
         <h2>Главное</h2>
@@ -114,6 +114,9 @@ export default {
     grid-column: 1 / 4;
     display: flex;
     flex-direction: column;
+    a {
+      white-space:nowrap;
+    }
     .Timer-logo {
       width: 56px;
     }
