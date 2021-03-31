@@ -2,9 +2,9 @@
   <header class="Header" @mouseleave="resetActive">
     <div class="Header__mobile">
       <div class="Header__logo">
-        <router-link to="/">
+        <a href="#main">
           <img src="~/assets/images/Header/Timerman.svg" alt="logo">
-        </router-link>
+        </a>
       </div>
       <div class="Header__burger" :class="activeMobile && 'Header__burger_active'" @click="openMenu">
         <p>Меню</p>
@@ -39,10 +39,6 @@ export default {
       activeLink: null,
       links: [
         {
-          hash: 'main',
-          name: 'Главная'
-        },
-        {
           hash: 'invite',
           name: 'Приглашение'
         },
@@ -65,7 +61,11 @@ export default {
         {
           hash: 'FAQ',
           name: 'Вопрос - Ответ'
-        }
+        },
+        {
+          hash: 'contacts',
+          name: 'Контакты'
+        },
       ]
     }
   },
@@ -198,6 +198,7 @@ export default {
       display: none;
       &_active {
         display: flex;
+        height: 100vh;
       }
     }
 
@@ -218,7 +219,8 @@ export default {
       color: $black;
       @media (max-width: 620px) {
         justify-content: flex-start;
-        padding-left: 16px;
+        padding: 24px 16px;
+        height: auto;
       }
 
       &:hover {
@@ -234,10 +236,10 @@ export default {
         @media (max-width: 620px) {
           display: block;
           position: relative;
-          font-size: 18px;
           line-height: 18px;
           text-transform: uppercase;
-          padding-left: 24px;
+          padding: 0 16px;
+          font-size: 16px;
         }
 
         &_active {

@@ -1,5 +1,5 @@
 <template>
-  <div class="Footer">
+  <div class="Footer" id="contacts">
     <div class="Footer__container">
       <div class="Footer__logos">
         <img src="~/assets/images/Main/Partners/KM.svg" alt="">

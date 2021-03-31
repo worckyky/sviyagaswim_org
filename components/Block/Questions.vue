@@ -108,6 +108,9 @@ export default {
     -ms-transition: ease-in-out 0.2s;
     -o-transition: ease-in-out 0.2s;
     transition: ease-in-out 0.2s;
+    p {
+      width: 80%;
+    }
     &:hover {
       background-color: rgba(247, 194, 77, 0.1);
     }
