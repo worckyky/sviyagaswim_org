@@ -219,8 +219,12 @@ export default {
       color: $black;
       @media (max-width: 620px) {
         justify-content: flex-start;
-        padding: 24px 16px;
+        padding: 20px 16px;
+        align-items: center;
         height: auto;
+        img {
+          width: 24px;
+        }
       }
 
       &:hover {
