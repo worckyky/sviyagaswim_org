@@ -85,18 +85,6 @@ export default [
         allSlots: 1300,
         urlTo: '/'
       },
-      {
-        price: 4000,
-        freeSlots: 0,
-        allSlots: 5100,
-        urlTo: '/'
-      },
-      {
-        price: 6000,
-        freeSlots: 0,
-        allSlots: 400,
-        urlTo: '/'
-      }
     ]
   },
   {
@@ -110,18 +98,6 @@ export default [
         allSlots: 1000,
         urlTo: '/'
       },
-      {
-        price: 1200,
-        freeSlots: 0,
-        allSlots: 500,
-        urlTo: '/'
-      },
-      {
-        price: 1600,
-        freeSlots: 0,
-        allSlots: 400,
-        urlTo: '/'
-      }
     ]
   }
 ]
