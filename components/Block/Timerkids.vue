@@ -96,6 +96,7 @@ export default {
   &__slider {
     grid-column: 1 / 7;
     position: relative;
+    width: 100%;
     @media (max-width: 920px) {
       grid-column: 1 / 5;
       grid-row: 1;

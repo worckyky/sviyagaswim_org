@@ -123,6 +123,7 @@ export default {
     display: flex;
     justify-content: center;
     position: relative;
+    width: 100%;
     @media (max-width: 920px) {
       grid-column: 5/9;
     }
