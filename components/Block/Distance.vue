@@ -20,7 +20,7 @@
         <div class="Distance__content-table">
           <div class="Head">
             <div>Цена</div>
-            <div>Доступные слоты</div>
+            <div>Осталось слотов</div>
             <div>Участие</div>
           </div>
           <div
@@ -28,15 +28,15 @@
           >
             <div
               class="Body__elem"
-              :class="elem.freeSlots === elem.allSlots ? 'Body__elem_disabled' : ''"
+              :class="elem.freeSlots === 0 ? 'Body__elem_disabled' : ''"
               v-for="(elem, i) of selected.slots"
               :key="i"
             >
                 <p><span class="mobile">Цена:</span>{{ elem.price + " Рублей" }}</p>
-                <p><span class="mobile">Доступные слоты:</span>
-                  {{ elem.freeSlots }}<span>/</span>{{ elem.allSlots }}
+                <p><span class="mobile">Осталось слотов:</span>
+                  {{ elem.freeSlots }}
                 </p>
-                <a :href="elem.urlTo" :class="elem.freeSlots === elem.allSlots ? 'disabled' : ''">Зарегистрироваться</a>
+                <a :href="elem.urlTo" :class="elem.freeSlots === 0 ? 'disabled' : ''">Зарегистрироваться</a>
             </div>
           </div>
         </div>

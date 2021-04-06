@@ -7,19 +7,15 @@ export default [
       {
         price: 1000,
         freeSlots: 1000,
-        allSlots: 1000,
-        urlTo: '/'
       },
       {
         price: 1200,
-        freeSlots: 0,
-        allSlots: 500,
+        freeSlots: 500,
         urlTo: '/'
       },
       {
         price: 1600,
-        freeSlots: 0,
-        allSlots: 400,
+        freeSlots: 500,
         urlTo: '/'
       }
     ]
@@ -31,20 +27,17 @@ export default [
     slots: [
       {
         price: 1500,
-        freeSlots: 0,
-        allSlots: 1000,
+        freeSlots: 500,
         urlTo: '/'
       },
       {
         price: 1700,
-        freeSlots: 0,
-        allSlots: 600,
+        freeSlots: 600,
         urlTo: '/'
       },
       {
         price: 1800,
-        freeSlots: 0,
-        allSlots: 4300,
+        freeSlots: 700,
         urlTo: '/'
       }
     ]
@@ -56,20 +49,17 @@ export default [
     slots: [
       {
         price: 1000,
-        freeSlots: 0,
-        allSlots: 1000,
+        freeSlots: 200,
         urlTo: '/'
       },
       {
         price: 1200,
-        freeSlots: 0,
-        allSlots: 5400,
+        freeSlots: 300,
         urlTo: '/'
       },
       {
         price: 1600,
-        freeSlots: 0,
-        allSlots: 4500,
+        freeSlots: 400,
         urlTo: '/'
       }
     ]
@@ -81,8 +71,7 @@ export default [
     slots: [
       {
         price: 2000,
-        freeSlots: 0,
-        allSlots: 1300,
+        freeSlots: 1000,
         urlTo: '/'
       },
     ]
@@ -94,8 +83,7 @@ export default [
     slots: [
       {
         price: 1300,
-        freeSlots: 0,
-        allSlots: 1000,
+        freeSlots: 2000,
         urlTo: '/'
       },
     ]
