@@ -26,8 +26,6 @@
                 class="element"
                 :style="{ 'background-image': `url(${imgAddress(slide)})` }"
               ></div>
-<!--              <img :src="require(`~/assets/images/NewYear/Slider/${slide}.jpg`)" alt="image"-->
-<!--              >-->
             </div>
           </Slide>
         </Carousel>
@@ -52,7 +50,7 @@ export default {
   },
   data() {
     return {
-      photos: ['1', '2', '3'],
+      photos: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
       sliderConfig: {
         autoplay: true,
         perPage: 1,
@@ -91,7 +89,7 @@ export default {
     @include layout;
     @media (max-width: 920px) {
       grid-template-rows: repeat(2, auto);
-      grid-template-columns: repeat(4 ,1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -104,6 +102,7 @@ export default {
       display: flex;
       flex-direction: column;
     }
+
     &-navigation {
       display: flex;
       justify-content: space-between;
@@ -123,9 +122,11 @@ export default {
         bottom: -9px;
       }
     }
+
     &-block {
       display: flex;
       justify-content: center;
+
       .element {
         width: 380px;
         height: 300px;
@@ -143,6 +144,7 @@ export default {
       }
     }
   }
+
   &__content {
     grid-column: 7 / 13;
     font-size: 18px;
@@ -156,10 +158,12 @@ export default {
       align-items: center;
       text-align: center;
     }
+
     img {
       width: 165px;
       margin-bottom: 32px;
     }
+
     p {
       margin-bottom: 24px;
     }
