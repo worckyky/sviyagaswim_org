@@ -10,6 +10,7 @@
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
+    "@nuxtjs/gtm": "^2.4.0",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3",
     "vue-carousel": "^0.18.0"
@@ -17,6 +18,6 @@
   "devDependencies": {
     "node-sass": "^5.0.0",
     "push-dir": "^0.4.1",
-    "sass-loader": "^10.1.0"
+    "sass-loader": "^10.1.1"
   }
 }
