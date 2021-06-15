@@ -2,7 +2,7 @@
   <header class="Header" @mouseleave="resetActive">
     <div class="Header__mobile">
       <div class="Header__logo">
-        <a href="#main">
+        <a href="https://timerman.org/" target="_blank">
           <img src="~/assets/images/Header/Timerman.svg" alt="logo">
         </a>
       </div>
