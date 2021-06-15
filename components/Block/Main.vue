@@ -70,7 +70,7 @@ export default {
     left: 0;
     width: 915px;
     height: 601px;
-    background: url("assets/images/Main/Vector.svg") no-repeat;
+    background: url("assets/images/Main/Vector.png") no-repeat;
     @media (max-width: 920px) {
       left: -300px;
     }

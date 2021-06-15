@@ -23,6 +23,7 @@
     color: $white;
     border-radius: 6px;
     font-size: 20px;
+    display: inline-block;
     line-height: 24px;
     text-decoration: none;
     width: fit-content;

@@ -124,7 +124,7 @@ export default {
       background-color: $white;
       border-radius: 6px;
       margin-right: 24px;
-
+      position: relative;
       &:nth-last-child(1) {
         margin-right: unset;
       }

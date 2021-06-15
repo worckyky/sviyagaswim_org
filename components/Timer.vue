@@ -113,7 +113,7 @@ export default {
       font-size: 50px;
       line-height: 50px;
       text-align: center;
-      width: max-content;
+      width: auto;
       margin-bottom: 16px;
       display: flex;
       align-items: center;

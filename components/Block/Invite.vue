@@ -113,6 +113,7 @@ export default {
       background-color: $white;
       border-radius: 6px;
       margin-left: 24px;
+      position: relative;
       &:nth-last-child(2n) {
         margin-left: 0;
       }

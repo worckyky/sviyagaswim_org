@@ -41,8 +41,8 @@
               </div>
             </div>
             <div class="Events__content-buttons">
-              <a :href="selected.actionLink" target="_blank">Зарегистрироваться</a>
-              <a :href="selected.moreLink" target="_blank">Подробнее</a>
+              <a :href="selected.actionLink" target="_blank" role="button">Зарегистрироваться</a>
+              <a :href="selected.moreLink" target="_blank" role="button">Подробнее</a>
             </div>
           </div>
         </div>
@@ -297,7 +297,7 @@ export default {
       }
       a {
         width: fit-content;
-        appearance: button;
+        display: inline-block;
         text-decoration: none;
         border-radius: 6px;
         padding: 10px 16px;

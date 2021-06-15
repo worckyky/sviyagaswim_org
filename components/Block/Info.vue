@@ -6,8 +6,10 @@
         <Waves/>
         <p>Здесь вы можете ознакомится со всеми дистациями</p>
         <a href="https://clck.ru/VVHVC" target="_blank">
+          <div style="display: flex; align-items: center">
           <Location/>
           Смотреть схему
+          </div>
         </a>
         <img src="~/assets/images/Info/Tower.svg" alt="">
       </div>
@@ -15,8 +17,10 @@
         <h2 class="Info__title">Расписание</h2>
         <Waves/>
         <a href="" @click.prevent="showModal">
+          <div style="display: flex; align-items: center">
           <Calendar/>
           Смотреть расписание
+          </div>
         </a>
       </div>
     </div>
@@ -78,20 +82,19 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
     color: $white;
-    overflow: hidden;
-
+    z-index: 0;
     &::after {
-      content: "";
+      content: '';
       z-index: -1;
       position: absolute;
       top: 0;
       right: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.44);
+      background: rgba(0, 0, 0, 0.4);
     }
-
     img {
       width: 240px;
     }
@@ -105,8 +108,7 @@ export default {
     a {
       margin-top: 16px;
       width: fit-content;
-      appearance: button;
-      display: flex;
+      display: inline-block;
       align-items: center;
       text-decoration: none;
       border-radius: 6px;
@@ -147,7 +149,7 @@ export default {
     justify-content: center;
     align-items: flex-start;
     padding: 0 88px;
-    position: relative;
+    overflow: hidden;
     img{
       position: absolute;
       right: 0;
@@ -170,7 +172,7 @@ export default {
     background-image: url("../../assets/images/Info/schedule.jpg");
     justify-content: center;
     align-items: center;
-
+    overflow: hidden;
     a {
       margin-top: 40px;
     }
