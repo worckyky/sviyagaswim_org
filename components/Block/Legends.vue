@@ -143,6 +143,7 @@ export default {
       cursor: pointer;
       border-radius: 5px;
       overflow: hidden;
+      border: 1px solid #EBEBEB;
       -webkit-transition: ease-in-out 0.2s;
       -moz-transition: ease-in-out 0.2s;
       -ms-transition: ease-in-out 0.2s;
@@ -192,6 +193,7 @@ export default {
     background-color: $white;
     border-radius: 6px;
     overflow: hidden;
+    border: 1px solid #EBEBEB;
     @include imageShadow;
     @media (max-width: 920px) {
       grid-column: 1 / 13;

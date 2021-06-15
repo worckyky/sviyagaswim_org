@@ -173,6 +173,7 @@ export default {
       border-radius: 6px;
       display: flex;
       overflow: hidden;
+      border: 1px solid #EBEBEB;
       @media (max-width: 756px) {
         flex-direction: column;
         min-height: 500px;
