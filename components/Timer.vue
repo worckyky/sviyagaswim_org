@@ -1,7 +1,7 @@
 <template>
   <div class="Timer">
     <div class="Timer__title">
-      До начала мероприятия:
+      До старта
     </div>
     <div class="Timer__content">
       <div class="Timer__content-elem day">
@@ -98,45 +98,71 @@ export default {
   .Timer {
     display: flex;
     flex-direction: column;
-    width: 260px;
+    position: absolute;
+    z-index: 2;
+    align-items: center;
+    bottom: -100px;
+    right: 0;
+    @media (max-width: 756px) {
+      width: 100%;
+    }
     &__title {
-      font-size: 14px;
-      line-height: 14px;
-      padding: 9px 16px;
-      width: auto;
+      position: absolute;
+      z-index: 1;
+      top: -30px;
+      font-size: 50px;
+      line-height: 50px;
+      text-align: center;
+      width: max-content;
       margin-bottom: 16px;
-      background-color: $white;
-      position: relative;
       display: flex;
       align-items: center;
       overflow: hidden;
-      &::after {
-        position: absolute;
-        content: '';
-        right: 0;
-        background: url("../assets/images/Main/Element.svg") no-repeat center;
-        background-size: cover;
-        width: 60px;
-        height: 32px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: $white;
+      border-image-source: linear-gradient(180deg, #FBFBFB 45.68%, rgba(251, 251, 251, 0) 100%);
+      @media (max-width: 756px) {
+        -webkit-text-stroke-color: $black;
       }
+
     }
     &__content {
       display: flex;
-      justify-content: space-between;
+      //justify-content: space-between;
+      &-elem {
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        margin-right: 24px;
+        z-index: 3;
+        width: 120px;
+        border-radius: 6px;
+        @media (max-width: 756px) {
+          width: 100px;
+          margin-right: 16px;
+        }
+        &:nth-last-child(1) {
+          margin-right: 0;
+        }
+      }
       &-number, &-format {
         background-color: $white;
-        width: 76px;
         display: flex;
         align-items: center;
         justify-content: center;
       }
+
       &-number {
+        border-radius: 6px 6px 0 0;
         font-size: 32px;
         line-height: 32px;
         height: 64px;
-        margin-bottom: 16px;
+        border-bottom: 1px solid $gray300;
       }
       &-format {
+        border-radius: 0 0 6px 6px;
         font-size: 14px;
         line-height: 14px;
         height: 36px;

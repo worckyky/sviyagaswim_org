@@ -40,6 +40,10 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
+  margin: 24px;
+  border-radius: 5px;
+  overflow: hidden;
+  @include imageShadow;
 
   &::after {
     content: '';
@@ -49,7 +53,7 @@ export default {
     right: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
   }
 
   &__container {

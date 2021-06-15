@@ -87,6 +87,7 @@ export default {
     height: inherit;
     flex: 40%;
     background-color: $white;
+    border-radius: 6px;
     @include imageShadow;
     @media (max-width: 756px) {
       flex: 100%;
@@ -112,7 +113,8 @@ export default {
       width: 80%;
     }
     &:hover {
-      background-color: rgba(247, 194, 77, 0.1);
+      background-color: rgba(47, 112, 182, 0.2);
+      border-radius: 6px 6px 0 0;
     }
     @media (max-width: 756px) {
       padding: 16px;
@@ -140,7 +142,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $black;
+    color: $white;
     border-radius: 50%;
     font-size: 20px;
   }

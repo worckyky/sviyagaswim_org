@@ -1,5 +1,5 @@
 <template>
-  <div class="Partners">
+  <div class="Partners" id="partners">
     <div class="Partners__container">
       <h2 class="Partners__title">ПРИ ПОДДЕРЖКЕ</h2>
     </div>
@@ -106,7 +106,7 @@ export default {
     width: 120px;
     height: 120px;
     align-items: center;
-
+    border-radius: 5px;
     background-color: $white;
     -webkit-transition: ease-in-out 0.2s;
     -moz-transition: ease-in-out 0.2s;
@@ -116,7 +116,7 @@ export default {
     margin: 12px;
     @include imageShadow;
     &:hover {
-      background-color: rgba(247, 194, 77, 0.1);;
+      background-color: rgba(47, 112, 182, 0.1);;
       border: 1px solid $yellow;
     }
     @media (max-width: 620px) {

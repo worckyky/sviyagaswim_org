@@ -1,21 +1,24 @@
 <template>
-  <div class="LastYear">
-    <div class="LastYear__container">
-      <div class="LastYear__video"
-           >
-        <h1 class="LastYear__title">
-          Как это было в прошлом году
+  <div class="Events">
+    <div class="Events__container">
+      <div class="Events__header"
+      >
+        <img src="~/assets/images/Waves.svg" alt="">
+        <h1 class="Events__title">
+          Мерориятия
         </h1>
-        <div class="LastYear__video-container" @click="showModal">
-            <img src="~/assets/images/NewYear/Play.svg" alt="">
-        </div>
+        <img src="~/assets/images/Waves.svg" alt="">
+<!--                <div class="Events__video-container" @click="showModal">-->
+<!--                    <img src="~/assets/images/Events/Play.svg" alt="">-->
+<!--                </div>-->
       </div>
-      <div class="LastYear__slider">
-        <div class="LastYear__slider-navigation">
-          <img src="~/assets/images/NewYear/Slider/navigation/left.svg" @click="prevSlide" alt="left">
-          <img src="~/assets/images/NewYear/Slider/navigation/right.svg" @click="nextSlide" alt="right">
+
+      <div class="Events__slider">
+        <div class="Events__slider-navigation">
+          <img src="~/assets/images/Events/Slider/navigation/left.svg" @click="prevSlide" alt="left">
+          <img src="~/assets/images/Events/Slider/navigation/right.svg" @click="nextSlide" alt="right">
         </div>
-        <div class="LastYear__slider-container">
+        <div class="Events__slider-container">
           <Carousel
             :navigation-enabled="sliderConfig.navigationEnabled"
             :pagination-enabled="sliderConfig.paginationEnabled"
@@ -30,10 +33,28 @@
             :paginationActiveColor="sliderConfig.paginationActiveColor"
             ref="carousel"
           >
-            <Slide v-for="(slide , i) in screens" :key="i">
-              <div class="LastYear__slider-block">
-                <img :src="require(`~/assets/images/NewYear/Slider/${slide}.jpg`)" alt="image"
-                >
+            <Slide v-for="(s ,i) in data" :key="i">
+              <div class="Events__slider-block">
+                <div class="Events__slider-top" :style="{ 'background-image': `url(${imgAddress(s.img)})` }">
+                  <div class="Events__slider-title">
+                    <span :style="{ 'background': `${s.tag[1]}` }">{{ s.tag[0] }}</span>
+                    <h3>{{ s.title }}</h3>
+                  </div>
+                  <div class="Events__slider-date">
+                    <img src="~/assets/images/Events/calendar.svg" alt="">
+                    <span>{{ s.date }}</span>
+                  </div>
+                </div>
+                <div class="Events__slider-bottom">
+                  <div class="Events__slider-distance">
+                    <div>Дистанции:</div>
+                    <span v-for="(d,i) of s.distances" :key="i">{{ d }}</span>
+                  </div>
+                  <!--                  <div class="Events__slider-date">-->
+                  <!--                    <img src="" alt="">-->
+                  <!--                    <span>{{ s.date }}</span>-->
+                  <!--                  </div>-->
+                </div>
               </div>
             </Slide>
           </Carousel>
@@ -43,10 +64,12 @@
     </div>
   </div>
 </template>
-
+<!--                <img :src="require(`~/assets/images/Events/${s}.jpg`)" alt="image"-->
+<!--                >-->
 <script>
 import Modal from "@/components/Modal";
 import {Carousel, Slide} from 'vue-carousel'
+import Data from '@/assets/content/events'
 
 export default {
   components: {
@@ -58,21 +81,17 @@ export default {
       show: false,
       sliderConfig: {
         autoplay: true,
-        perPage: 1,
-        autoplayTimeout: 4000,
+        perPage: 2,
+        autoplayTimeout: 10000,
         loop: true,
         direction: 'forward',
         paginationPosition: ['overlay', 'bottom-overlay'],
         speed: 1000,
         paginationEnabled: true,
         paginationColor: '#D1D1D1',
-        paginationActiveColor: '#F7C24D'
+        paginationActiveColor: '#2f70b6'
       },
-      screens: [
-        '1',
-        '2',
-        '3'
-      ]
+      data: Data
     }
   },
   methods: {
@@ -84,7 +103,10 @@ export default {
     },
     prevSlide() {
       this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
-    }
+    },
+    imgAddress(name) {
+      return require(`~/assets/images/Events/${name}.jpg`)
+    },
 
   }
 }
@@ -95,111 +117,129 @@ export default {
 @import "assets/styles/mixins";
 @import "assets/styles/variables";
 
-.LastYear {
+.VueCarousel-wrapper {
+  padding: 16px 0 !important;
+}
+.Events {
   background-color: $white;
   padding: 80px 0;
   @media (max-width: 756px) {
     padding-bottom: 120px;
   }
+
   &__container {
     @include layout;
-    @media (max-width: 756px) {
-      grid-template-rows: auto auto;
-      grid-row-gap: 48px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: unset;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      width: 240px;
     }
   }
 
   &__title {
     @include titleH2;
-    margin-bottom: 80px;
-    @media (max-width: 756px) {
-      text-align: center;
-      margin-bottom: 48px;
-    }
+    text-align: center;
   }
 
   &__slider {
-    grid-column: 7 / 13;
-    display: flex;
-    justify-content: center;
     position: relative;
-    width: 100%;
-    @media (max-width: 920px) {
-      grid-column: 5/9;
-    }
-    @media (max-width: 756px) {
-      grid-row: 2;
-      grid-column: 1/9;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 24px;
+
     &-navigation {
-      position: absolute;
-      bottom: 230px;
-      width: 90%;
+      width: 100%;
       display: flex;
       justify-content: space-between;
-      z-index: 10;
-
+      position: absolute;
+      margin-bottom: 80px;
 
       img {
         cursor: pointer;
       }
-      @media (max-width: 756px) {
-        bottom: -66px;
-      }
     }
 
     &-container {
-      height: 500px;
-      width: 400px;
-      position: relative;
-      @media (max-width: 920px) {
-        width: 80%;
-      }
+      margin: 0 auto;
+      width: 90%;
     }
 
     &-block {
-      display: flex;
-      justify-content: center;
-    }
-  }
-
-  &__video {
-    grid-column: 1 / 7;
-    @media (max-width: 920px) {
-      grid-column: 1/5;
-    }
-    @media (max-width: 756px) {
-      grid-row: 1;
-      grid-column: 1/9;
-    }
-
-    &-container {
-      cursor: pointer;
-      height: 300px;
-      background-image: url("assets/images/NewYear/VideoPreview.jpg");
-      z-index: 0;
-      position: relative;
       @include imageShadow;
+      background-color: $white;
+      max-width: 440px;
+      margin: 16px auto;
+      height: 430px;
+      border-radius: 6px;
+    }
+
+    &-top {
+      height: 200px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    &-title {
+      span {
+        padding: 4px 8px;
+        border-radius: 3px;
+        font-size: 12px;
+        line-height: 12px;
+        color: $white;
+      }
+
+      h3 {
+        margin-top: 12px;
+        font-family: Swiyaga, sans-serif;
+        line-height: 24px;
+        font-size: 18px;
+        color: $white;
+      }
+    }
+
+    &-date {
+      color: $white;
       display: flex;
       align-items: center;
-      justify-content: center;
-      @media (max-width: 480px) {
-        height: 200px;
+      font-size: 12px;
+      line-height: 12px;
+      img {
+        margin-right: 4px;
       }
-      &::after {
+    }
+
+    &-distance {
+      display: flex;
+      padding: 16px 24px;
+      align-items: center;
+      border-bottom: 1px solid #EBEBEB;
+      div, span {
+        margin-right: 8px;
+        font-size: 12px;
+        line-height: 12px;
+      }
+      div {
+        font-weight: 700;
+      }
+      span {
+        padding: 4px 8px;
+        border: 1px solid $yellow;
+        border-radius: 3px;
+        color: $black;
         cursor: pointer;
-        content: '';
-        z-index: -1;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(196, 196, 196, 0.091);
-        box-shadow: inset 28.6px -28.6px 28.6px rgba(149, 149, 149, 0.091), inset -28.6px 28.6px 28.6px rgba(255, 255, 255, 0.091);
-        backdrop-filter: blur(6.864px);
       }
     }
   }
+
 }
 </style>

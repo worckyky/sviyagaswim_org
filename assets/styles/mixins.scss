@@ -20,22 +20,22 @@
 
 // H1 Title
 @mixin titleH1() {
-  font-family: MyEurope, serif;
-  font-size: 42px;
-  line-height: 64px;
+  font-family: Swiyaga, serif;
+  font-size: 80px;
+  line-height: 80px;
   color: $black;
   font-weight: 700;
   text-transform: uppercase;
   @media (max-width: 920px) {
-    font-size: 32px;
-    line-height: 48px;
+    font-size: 52px;
+    line-height: 64px;
   }
 
 }
 
 // H2 Title
 @mixin titleH2() {
-  font-family: MyEurope, serif;
+  font-family: Swiyaga, serif;
   font-size: 24px;
   line-height: 36px;
   color: $black;

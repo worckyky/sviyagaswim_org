@@ -2,12 +2,12 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/Kazanmarathon/'
+    base: '/Sviyagaswim/'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Казанский марафон',
+    title: 'Свияга фест',
     htmlAttrs: {
       lang: 'en'
     },

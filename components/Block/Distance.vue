@@ -1,45 +1,52 @@
 <template>
-  <div class="Distance" id="distance">
-    <h2 class="Distance__title">
-      Наши доступные дистанции
-    </h2>
-    <div class="Distance__container">
-      <div class="Distance__tabs">
+  <div class="Events" id="swim">
+    <div class="Events__container">
+      <div class="Events__header"
+      >
+        <img src="~/assets/images/Waves.svg" alt="">
+        <h2 class="Events__title">
+          Мерориятия
+        </h2>
+        <img src="~/assets/images/Waves.svg" alt="">
+      </div>
+      <div class="Events__tabs">
         <Tabs
           :tabs-array="tabsArray"
           @SelectedElement="selectElement"
         />
       </div>
-      <div class="Distance__content">
-        <div class="Distance__content-link">
-          <a :href="selected.schemeURL">
-            <img src="~/assets/images/Distance/File.svg" alt="File">
-            Скачать схему дистанции
-          </a>
-        </div>
-        <div class="Distance__content-table">
-          <div class="Head">
-            <div>Цена</div>
-            <div>Осталось слотов</div>
-            <div>Участие</div>
+      <div class="Events__content">
+        <div class="Events__content-block">
+          <div class="Events__content-top" :style="{ 'background-image': `url(${imgAddress(selected.img)})` }">
+            <div class="Events__content-date">
+              <img src="~/assets/images/Events/calendar.svg" alt="">
+              <span>{{ selected.date }}</span>
+            </div>
+            <div class="Events__content-title">
+              <span
+                :style="{'background': `${selected.tag[1]}`, 'color': `${selected.tag[0] === 'Swimrun' ? '#000000' : '#ffffff'}`}">{{
+                  selected.tag[0]
+                }}</span>
+              <h3>{{ selected.title }}</h3>
+            </div>
           </div>
-          <div
-            class="Body"
-          >
-            <div
-              class="Body__elem"
-              :class="elem.freeSlots === 0 ? 'Body__elem_disabled' : ''"
-              v-for="(elem, i) of selected.slots"
-              :key="i"
-            >
-                <p><span class="mobile">Цена:</span>{{ elem.price + " Рублей" }}</p>
-                <p><span class="mobile">Осталось слотов:</span>
-                  {{ elem.freeSlots }}
-                </p>
-                <a :href="elem.urlTo" :class="elem.freeSlots === 0 ? 'disabled' : ''">Зарегистрироваться</a>
+          <div class="Events__content-bottom">
+            <div>
+              <div class="Events__content-distance">
+                <div>Дистанции:</div>
+                <span v-for="(d,i) of selected.distances" :key="i">{{ d }}</span>
+              </div>
+              <div class="Events__content-text">
+                <p>{{ selected.description }}</p>
+              </div>
+            </div>
+            <div class="Events__content-buttons">
+              <a :href="selected.actionLink" target="_blank">Зарегистрироваться</a>
+              <a :href="selected.moreLink" target="_blank">Подробнее</a>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -48,21 +55,22 @@
 
 <script>
 import distance from "assets/content/distance";
-
+import data from '@/assets/content/events'
 import Tabs from "@/components/Tabs";
+import Button from "@/components/Button";
 
 export default {
-  components: {Tabs},
+  components: {Button, Tabs},
   data() {
     return {
-      selected: distance[0]
+      selected: data[0]
     }
   },
   computed: {
     tabsArray() {
-      return distance.map(elem => {
+      return data.map(elem => {
         return {
-          distance: elem.distance,
+          title: elem.title,
           id: elem.id
         }
       })
@@ -70,8 +78,11 @@ export default {
   },
   methods: {
     selectElement(elemID) {
-      this.selected = distance.find(elem => elem.id === elemID)
-    }
+      this.selected = data.find(elem => elem.id === elemID)
+    },
+    imgAddress(name) {
+      return require(`~/assets/images/Events/${name}.jpg`)
+    },
   }
 }
 </script>
@@ -81,17 +92,38 @@ export default {
 @import "assets/styles/mixins";
 @import "assets/styles/variables";
 
-.Distance {
+.Events {
   padding: 80px 0;
-
+  background-color: $white;
+  @media (max-width: 475px) {
+    padding-bottom: 20px;
+  }
   &__container {
     @include layout;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    grid-column: 1 / 13;
+    margin-bottom: 56px;
+
+    img {
+      width: 240px;
+    }
+    @media (max-width: 756px) {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 16px;
+      h2 {
+        margin: 16px 0;
+      }
+    }
   }
 
   &__title {
     @include titleH2;
     text-align: center;
-    margin-bottom: 56px;
   }
 
   &__tabs, &__content {
@@ -100,9 +132,10 @@ export default {
 
   @media (max-width: 756px) {
     &__tabs {
-      overflow-x : scroll !important;
+      overflow-x: scroll !important;
       -webkit-overflow-scrolling: touch;
       padding-bottom: 24px;
+
       &::-webkit-scrollbar {
         -webkit-appearance: none;
       }
@@ -125,129 +158,187 @@ export default {
   }
 
   &__content {
-    &-link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 24px;
+
+    &-block {
+      @include imageShadow;
+      background-color: $white;
+      max-width: 700px;
+      margin: 16px auto;
+      height: 430px;
+      border-radius: 6px;
       display: flex;
-      justify-content: center;
-      margin: 24px 0;
+      overflow: hidden;
       @media (max-width: 756px) {
-        margin: 48px 0;
+        flex-direction: column;
+        min-height: 500px;
       }
-
-      a {
-        display: flex;
-        text-decoration: none;
-        align-items: center;
-        color: $black;
-        width: auto;
-        font-size: 20px;
-        line-height: 20px;
-
-        img {
-          margin-right: 16px;
-        }
+      @media (max-width: 475px) {
+        min-height: 600px;
       }
     }
 
-    &-table {
-      .Head {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        padding: 18px 0;
-        border: 1px solid #F7C24D;
-        border-radius: 10px;
-        margin-bottom: 32px;
+    &-top {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 40%;
+      position: relative;
+      z-index: 0;
+      height: 100%;
+      &::after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) -10.5%, #000000 180.75%);;
+      }
+      @media (max-width: 756px) {
+        width: 100%;
+        height: 30%;
+        padding: 16px;
+      }
+    }
 
-        div {
-          text-align: center;
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 18px;
-        }
-
-        @media (max-width: 756px) {
-          display: none;
-        }
+    &-title {
+      span {
+        padding: 4px 8px;
+        border-radius: 3px;
+        font-size: 12px;
+        line-height: 12px;
+        color: $white;
       }
 
-      .Body {
-        display: flex;
-        flex-direction: column;
+      h3 {
+        margin-top: 12px;
+        font-family: Swiyaga, sans-serif;
+        line-height: 24px;
+        font-size: 18px;
+        color: $white;
+      }
+    }
 
-        &__elem {
-          .mobile {
-            display: none;
-          }
-          .disabled {
-            background-color: #DCDCDC;
-            border: 1px solid #EFEFEF;
-            color: #A7A7A7;
-            pointer-events: none;
-          }
-          &_disabled {
-            background-color: #EFEFEF;
-          }
-          padding: 24px 0;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          background: $white;
-          @include imageShadow;
-          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-          margin-bottom: 16px;
-          @media (max-width: 756px) {
-            display: flex;
-            flex-direction: column;
-            padding: 32px 0;
-            .mobile {
-              display: block;
-              font-size: 18px;
-              line-height: 18px;
-              font-weight: 700;
-              color: $black;
-              margin-bottom: 16px;
-            }
-            p {
-              margin-bottom: 32px;
-            }
-          }
+    &-date {
+      color: $white;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      line-height: 12px;
 
-          p, a {
-            text-align: center;
-            color: $black;
-            align-self: center;
-          }
+      img {
+        margin-right: 4px;
+      }
+    }
 
-          p {
-            font-size: 20px;
-            line-height: 20px;
+    &-bottom {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @media (max-width: 756px) {
+        width: 100%;
+        height: 70%;
+      }
+    }
 
-            span {
-              margin: 0 8px;
-              color: $yellow;
-            }
-          }
+    &-distance {
+      display: flex;
+      padding: 16px 24px;
+      align-items: center;
+      border-bottom: 1px solid #EBEBEB;
 
-          a {
-            padding: 8px 16px;
+      div, span {
+        margin-right: 8px;
+        font-size: 12px;
+        line-height: 12px;
+      }
+
+      div {
+        font-weight: 700;
+      }
+
+      span {
+        padding: 4px 8px;
+        border: 1px solid $yellow;
+        border-radius: 3px;
+        color: $black;
+        cursor: pointer;
+      }
+      @media (max-width: 756px) {
+        padding: 16px;
+      }
+    }
+
+    &-text {
+      padding: 24px;
+      font-size: 12px;
+      line-height: 20px;
+      color: $black;
+      @media (max-width: 756px) {
+        padding: 16px;
+      }
+    }
+
+    &-buttons {
+      padding: 24px;
+      @media (max-width: 756px) {
+        padding: 16px;
+      }
+      a {
+        width: fit-content;
+        appearance: button;
+        text-decoration: none;
+        border-radius: 6px;
+        padding: 10px 16px;
+        color: $white;
+        background-color: $yellow;
+        border: 1px solid $yellow;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 24px;
+        margin-right: 8px;
+        -webkit-transition: ease-in-out 0.2s;
+        -moz-transition: ease-in-out 0.2s;
+        -ms-transition: ease-in-out 0.2s;
+        -o-transition: ease-in-out 0.2s;
+        transition: ease-in-out 0.2s;
+        &:hover {
+          background-color: $white;
+          border: 1px solid $yellow;
+          color: $yellow;
+        }
+        &:nth-child(2){
+          background-color: $white;
+          color: $yellow;
+          margin-right: unset;
+          &:hover {
             background-color: $yellow;
             border: 1px solid $yellow;
-            width: fit-content;
-            text-decoration: none;
-            font-size: 16px;
-            line-height: 24px;
-            margin: 0 auto;
-            -webkit-transition: ease-in-out 0.2s;
-            -moz-transition: ease-in-out 0.2s;
-            -ms-transition: ease-in-out 0.2s;
-            -o-transition: ease-in-out 0.2s;
-            transition: ease-in-out 0.2s;
-            &:hover {
-              background-color: $white;
-              border: 1px solid $yellow;
-            }
+            color: $white;
+          }
+        }
+        @media (max-width: 475px) {
+          width: 100%;
+          text-align: center;
+          margin-bottom: 16px;
+          &:nth-last-child(1) {
+            margin-bottom: unset;
           }
         }
       }
     }
   }
+
 }
 </style>

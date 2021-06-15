@@ -40,6 +40,14 @@
                 corp@timerman.org
               </a>
             </li>
+            <li style="display: flex; flex-direction: column">
+              <span style="font-size: 10px; margin-bottom: 4px">По вопросам сотрудничества </span>
+              <a
+                class="Footer__mail"
+                href="mailto:partner@timerman.org”">
+                partner@timerman.org”
+              </a>
+            </li>
           </ul>
           <div class="Footer__social">
             <a

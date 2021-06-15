@@ -20,7 +20,8 @@
     padding: 16px 24px;
     background-color: $yellow;
     border: 1px solid $yellow;
-    color: $black;
+    color: $white;
+    border-radius: 6px;
     font-size: 20px;
     line-height: 24px;
     text-decoration: none;
@@ -33,6 +34,7 @@
     &:hover {
       background-color: transparent;
       border: 1px solid $yellow;
+      color: $yellow;
     }
   }
 </style>

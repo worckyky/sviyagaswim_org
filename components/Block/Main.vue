@@ -1,20 +1,19 @@
 <template>
-  <div class="Main" id="main">
+  <div class="Main">
     <div class="Main__container">
       <div class="Main__content">
         <div class="Main__logo">
-          <img src="~/assets/images/Main/Partners/KM.svg" alt="">
-          <a href="https://www.worldmarathonmajors.com/" target="_blank"><img src="~/assets/images/Main/Partners/AWMM.svg" alt=""></a>
+          <img src="~/assets/images/Main/Partners/Timerman.svg" alt="">
         </div>
         <p class="Main__data">2 мая 2021</p>
         <h1 class="Main__title">
-          Казанский марафон
+          SVIYAGA FEST
         </h1>
-        <Button>Принять участие!</Button>
+        <Button>Зарегистрироваться</Button>
       </div>
       <div class="Main__timer">
-        <Timer endtime="May 2, 2021 00:00:00"
-               starttime="Mar 24, 2021 00:00:00"
+        <Timer endtime="July 9, 2021 00:00:00"
+               starttime="June 12, 2021 00:00:00"
                trans='{
          "day":"Дней",
          "hours":"Часов",
@@ -47,35 +46,36 @@ export default {
 @import "assets/styles/mixins";
 
 .Main {
-  @media (max-width: 620px) {
-    margin-top: 80px;
-    height: 640px;
-  }
-  background-image: url("assets/images/Main/Zilant.jpg");
+  background-image: url("assets/images/Main/Bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
   height: 600px;
+  margin: 24px;
   z-index: 0;
-
+  @include imageShadow;
+  border-radius: 6px;
+  @media (max-width: 756px) {
+    margin: unset;
+  }
+  @media (max-width: 620px) {
+    margin: 80px 0 0 0;
+  }
   &::after {
     content: '';
     z-index: -1;
     position: absolute;
     top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(38.86% 100.54% at 73.26% 50.07%,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.51) 57.29%,
-      rgba(255, 255, 255, 0.96) 99.6%);
-    @media (max-width: 620px) {
-      background: radial-gradient(58.14% 51.34% at 100% 50.08%,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.51) 57.29%,
-        rgba(255, 255, 255, 0.96) 99.6%);
+    left: 0;
+    width: 915px;
+    height: 601px;
+    background: url("assets/images/Main/Vector.svg") no-repeat;
+    @media (max-width: 920px) {
+      left: -300px;
+    }
+    @media (max-width: 475px) {
+      left: -450px;
     }
   }
 
@@ -87,29 +87,28 @@ export default {
   }
 
   &__content {
-    grid-column: 1 / 6;
+    grid-column: 1 / 8;
     display: flex;
     justify-content: center;
     flex-direction: column;
     @media (max-width: 920px) {
-      grid-column: 1 / 5;
+      grid-column: 1 / 10;
     }
-    @media (max-width: 620px) {
+    @media (max-width: 756px) {
       grid-row: 1;
-      grid-column: 1 / 1;
+      grid-column: 1 / 13;
     }
   }
 
   &__logo {
     margin-bottom: 80px;
-    @media (max-width: 620px) {
+    @media (max-width: 756px) {
       margin: 56px 0;
     }
     img {
-      @media (max-width: 620px) {
-        width: 120px;
+      @media (max-width: 756px) {
+        width: 180px;
       }
-
       &:nth-child(1) {
         margin-right: 16px;
       }
@@ -118,27 +117,35 @@ export default {
 
   &__data {
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 20px;
+    margin-bottom: 16px;
+    @media (max-width: 475px) {
+      margin-bottom: 8px;
+    }
   }
 
   &__title {
     @include titleH1;
     margin-bottom: 48px;
+    font-size: 80px;
+    @media (max-width: 475px) {
+      font-size: 40px;
+    }
   }
   &__timer {
     display: flex;
     align-items: flex-end;
-    grid-column: 7 / 12;
+    grid-column: 12 / 13;
     margin-bottom: 48px;
+    position: relative;
     @media (max-width: 920px) {
       justify-content: center;
-      grid-column: 5 / 9;
     }
-    @media (max-width: 620px) {
+    @media (max-width: 756px) {
       grid-row: 2;
       justify-content: normal;
-      grid-column: auto;
+      grid-column: 1 / 13;
     }
   }
 }

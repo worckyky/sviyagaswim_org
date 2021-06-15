@@ -2,15 +2,17 @@
   <div class="Scroll">
     <Main/>
     <Invite/>
-    <LastYear/>
+<!--    <Events/>-->
     <Distance/>
-    <Schedule/>
-    <Timerkids/>
-    <TimerDragon/>
+    <Info/>
+    <Live/>
+<!--    <Schedule/>-->
+<!--    <TimerDragon/>-->
     <Location/>
-    <Expo/>
+    <About/>
+<!--    <Expo/>-->
     <Legends/>
-    <Reserch/>
+<!--    <Reserch/>-->
     <Social/>
     <Questions/>
     <Partners/>
@@ -21,10 +23,9 @@
 <script>
 import Main from "~/components/Block/Main";
 import Invite from "@/components/Block/Invite";
-import LastYear from "@/components/Block/LastYear";
+import Events from "@/components/Block/Events";
 import Distance from "@/components/Block/Distance";
 import Schedule from "@/components/Block/Schedule";
-import Timerkids from "@/components/Block/Timerkids";
 import TimerDragon from "@/components/Block/TimerDragon";
 import Location from "@/components/Block/Location";
 import Expo from "@/components/Block/Expo";
@@ -34,13 +35,19 @@ import Social from "@/components/Block/Social";
 import Questions from "@/components/Block/Questions";
 import Partners from "@/components/Block/Partners";
 import Footer from "@/components/Block/Footer";
+import Info from "@/components/Block/Info";
+import Live from "@/components/Block/Live";
+import About from "@/components/Block/About";
 
 export default {
   components: {
+    About,
+    Live,
+    Info,
     Footer,
     Partners,
     Social,
-    Reserch, Expo, Location, TimerDragon, Timerkids, Schedule, Distance, LastYear, Invite, Main, Legends, Questions}
+    Reserch, Expo, Location, TimerDragon, Schedule, Distance, Events, Invite, Main, Legends, Questions}
 }
 </script>
 

@@ -2,15 +2,11 @@
   <div class="Modal" @click="hideModal">
     <div class="Modal__container" :class="isShown && 'animation'">
       <div class="Modal__head">
-        <p>Как это было в прошлом году</p>
-        <img src="~/assets/images/NewYear/Close.svg" alt="" class="hide">
+        <p>{{title}}</p>
+        <img src="~/assets/images/Events/Close.svg" alt="" class="hide">
       </div>
       <div class="Modal__container-wrapper">
-        <iframe width="100%" src="https://www.youtube.com/embed/yDTb_RfzTMI" title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                class="video"></iframe>
+        <slot/>
       </div>
     </div>
   </div>
@@ -18,6 +14,11 @@
 <script>
 export default {
   name: 'Modal',
+  props: {
+    title: {
+      default: 'Заголовок'
+    }
+  },
   data() {
    return {
      isShown: false
@@ -64,7 +65,7 @@ export default {
       position: relative;
       width: 100%;
       height: 100%;
-      padding-bottom: 56.25%;
+      padding: 24px;
       .video {
         position: absolute;
         top: 0;

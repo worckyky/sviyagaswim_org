@@ -39,20 +39,16 @@ export default {
       activeLink: null,
       links: [
         {
-          hash: 'invite',
-          name: 'Приглашение'
-        },
-        {
-          hash: 'distance',
-          name: 'Дистанции'
+          hash: 'swim',
+          name: 'Гонки'
         },
         {
           hash: 'schedule',
           name: 'Расписание'
         },
         {
-          hash: 'timerkids',
-          name: 'Timerkids'
+          hash: 'main',
+          name: 'Где жить'
         },
         {
           hash: 'location',
@@ -61,6 +57,10 @@ export default {
         {
           hash: 'FAQ',
           name: 'Вопрос - Ответ'
+        },
+        {
+          hash: 'partners',
+          name: 'Партнеры'
         },
         {
           hash: 'contacts',
@@ -216,11 +216,12 @@ export default {
       position: relative;
       font-family: MyEurope, serif;
       text-decoration: none;
-      color: $black;
+      color: $white;
       @media (max-width: 620px) {
         justify-content: flex-start;
         padding: 20px 16px;
         align-items: center;
+        color: $black;
         height: auto;
         img {
           width: 24px;
@@ -245,13 +246,12 @@ export default {
           padding: 0 16px;
           font-size: 16px;
         }
-
         &_active {
           display: block;
           min-width: 150px;
           transform: translateX(135px);
           padding: 8px;
-          background-color: #F7C24D;
+          background-color: #2F70B6;
           border-radius: 2px;
           text-align: center;
         }

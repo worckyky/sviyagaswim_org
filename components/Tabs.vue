@@ -24,7 +24,7 @@
       :key="i"
       @click="selectTab(elem.id)"
     >
-      {{ elem.distance }}
+      {{ elem.title }}
     </span>
     </div>
   </div>
@@ -98,14 +98,14 @@ export default {
   }
 
   &__element {
-    width: 190px;
+    width: 260px;
     display: flex;
     padding: 25px 0;
     border-bottom: 4px solid #C4C4C4;
     justify-content: center;
     cursor: pointer;
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 14px;
     -webkit-transition: ease-in-out 0.2s;
     -moz-transition: ease-in-out 0.2s;
     -ms-transition: ease-in-out 0.2s;
@@ -117,7 +117,7 @@ export default {
     }
 
     &:hover {
-      background-color: rgba(247, 194, 77, 0.1);;
+      background-color: rgba(47, 112, 182, 0.1);
     }
 
     @media (max-width: 756px) {

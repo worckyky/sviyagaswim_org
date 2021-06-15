@@ -1,18 +1,23 @@
 <template>
   <div class="Invite" id="invite">
-    <span class="Invite__some-text">О мероприятии</span>
     <div class="Invite__container">
-      <div class="Invite__images">
-        <img src="~/assets/images/Invite/1.jpg" alt="">
-        <img src="~/assets/images/Invite/2.jpg" alt="">
-        <img src="~/assets/images/Invite/3.jpg" alt="">
-      </div>
       <div class="Invite__content">
-        <p>Приглашаем на лучшее открытие бегового сезона! </p>
-        <p>Казанский марафон - это беговая экскурсия по главным достопримечательностям города с уникальной возможностью
-          увидеть столицу в период ее расцвета. </p>
-        <p>Приятная весенняя погода, гладкая ровная трасса с небольшим перепадом высот, маршруты в один круг.</p>
-        <p>В Казани созданы все условия для того, чтобы ставить личные рекорды.</p>
+        <h2 class="Invite__title">3 дня спортивного праздника <br> на остров-граде Свияжск</h2>
+        <img src="~/assets/images/Waves.svg" alt="">
+        <p>В программе традиционный заплыв SVIYAGA SWIM, забеги в костюмах и с картами, новый формат SWIMRUN, а еще
+          развлекательная программа, детские старты и активности, романтика палаточного городка, невероятная культура
+          острова и многое другое!</p>
+      </div>
+      <div class="Invite__features">
+        <div class="Invite__features-elem" v-for="(e, i) of features" :key="i">
+          <div class="Invite__features-img">
+            <img :src="require(`~/assets/images/Invite/${e.icon}.svg`)" alt="">
+          </div>
+          <div class="Invite__features-content">
+            <h3>{{ e.title }}</h3>
+            <p>{{ e.description }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -20,7 +25,34 @@
 
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      features: [
+        {
+          icon: 'medals',
+          title: '4 медальки',
+          description: '1 старт - 1 медаль'
+        },
+        {
+          icon: 'shirt',
+          title: 'Футболка',
+          description: 'Футболка фестиваля при регистрации на все старты'
+        },
+        {
+          icon: 'hands',
+          title: 'Ладошки вверх!',
+          description: 'Насыщенная программа для каждый день!'
+        },
+        {
+          icon: 'tent',
+          title: 'Палатки',
+          description: 'Романтика палаточного городка'
+        }
+      ]
+    }
+  }
+}
 </script>
 
 
@@ -29,127 +61,114 @@ export default {}
 @import "assets/styles/mixins";
 
 .Invite {
-  height: 768px;
-  padding: 80px 0;
+  padding: 100px 0;
+  min-height: 768px;
   position: relative;
   overflow: hidden;
-
-  &__some-text {
-    position: absolute;
-    z-index: -1;
-    font-size: 240px;
-    line-height: 300px;
-    color: transparent;
-    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: $black;
-    text-transform: uppercase;
-    width: max-content;
-    opacity: 0.05;
-    font-weight: 700;
+  @media (max-width: 475px) {
+    height: 1240px;
   }
   &__container {
     @include layout;
     @media (max-width: 756px) {
       grid-template-rows: repeat(2, 1fr);
     }
+
   }
 
-  &__images {
-    grid-column: 1 / 7;
+  &__features {
+    grid-column: 6 / 13;
     position: relative;
-    img {
-      position: absolute;
-      @include imageShadow;
-
-      &:nth-child(1) {
-        z-index: 3;
-        width: 350px;
-        right: 0;
-      }
-
-      &:nth-child(2) {
-        z-index: 1;
-        width: 340px;
-        left: 0;
-        top: 176px;
-      }
-
-      &:nth-child(3) {
-        z-index: 1;
-        width: 240px;
-        right: 32px;
-        bottom: 60px;
-      }
-    }
-    @media (max-width: 920px) {
-      grid-column: 1 / 5;
-      img {
-        &:nth-child(1) {
-          z-index: 3;
-          width: 300px;
-          right: 0;
-        }
-
-        &:nth-child(2) {
-          z-index: 1;
-          width: 280px;
-          top: 126px;
-        }
-
-        &:nth-child(3) {
-          z-index: 1;
-          width: 200px;
-          right: 32px;
-          bottom: 140px;
-        }
-      }
-    }
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     @media (max-width: 756px) {
-      grid-row: 1 ;
+      grid-row: 2;
       grid-column: 1 / 13;
-      height: 300px;
+    }
+    &-img {
+      position: absolute;
+      background-color: $white;
+      border-radius: 50%;
       display: flex;
+      align-items: center;
       justify-content: center;
+      width: 60px;
+      height: 60px;
+      @include imageShadow;
+      top: -30px;
+      left: 16px;
       img {
-        &:nth-child(1) {
-          z-index: 3;
-          width: 220px;
-          right: auto;
-          transform: translateX(60px);
-          top: -38px;
-        }
-
-        &:nth-child(2) {
-          z-index: 1;
-          width: 240px;
-          top: 48px;
-          left: auto;
-        }
-
-        &:nth-child(3) {
-          z-index: 1;
-          width: 140px;
-          right: auto;
-          bottom: 22px;
-          transform: translateX(-60px);
-        }
+        width: 32px;
+      }
+      @media (max-width: 475px) {
+        left: unset;
       }
     }
+    &-elem {
+      flex: 40%;
+      height: 200px;
+      @include imageShadow;
+      margin-bottom: 56px;
+      background-color: $white;
+      border-radius: 6px;
+      margin-left: 24px;
+      &:nth-last-child(2n) {
+        margin-left: 0;
+      }
+      @media (max-width: 475px) {
+        flex: 100%;
+        display: flex;
+        margin-left: unset;
+        align-items: center;
+        justify-content: center;
+        height: 146px;
+      }
+    }
+    &-content {
+      order: 1;
+      padding: 48px 16px 16px 16px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      h3 {
+        font-family: Swiyaga, Serif;
+        font-size: 18px;
+        line-height: 24px;
+        text-transform: uppercase;
+      }
+      p {
+        font-size: 14px;
+        line-height: 22px;
+      }
+      @media (max-width: 475px) {
+        text-align: center;
+      }
+    }
+  }
+
+  &__title {
+    @include titleH2;
+    margin-bottom: 16px;
   }
 
   &__content {
-    grid-column: 8 / 13;
+    img {
+      width: 240px;
+      margin-bottom: 40px;
+    }
+    grid-column: 1 / 6;
     display: flex;
     flex-direction: column;
     justify-content: center;
     @media (max-width: 920px) {
-      grid-column: 5 / 9;
     }
     @media (max-width: 756px) {
-      grid-row: 2 ;
+      grid-row: 1;
       grid-column: 1 / 13;
       text-align: center;
+      align-items: center;
     }
     p {
       @include paragraph18;
