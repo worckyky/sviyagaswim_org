@@ -2,7 +2,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/Sviyagaswim/'
+    base: '/sviyagaswim_org/'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
