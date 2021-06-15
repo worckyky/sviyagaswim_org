@@ -2,8 +2,8 @@
   <div class="Footer" id="contacts">
     <div class="Footer__container">
       <div class="Footer__logos">
-        <img src="~/assets/images/Main/Partners/KM.svg" alt="">
-        <a href="https://www.worldmarathonmajors.com/" target="_blank"><img src="~/assets/images/Main/Partners/AWMM.svg" alt=""></a>
+<!--        <img src="~/assets/images/Main/Partners/KM.svg" alt="">-->
+<!--        <a href="https://www.worldmarathonmajors.com/" target="_blank"><img src="~/assets/images/Main/Partners/AWMM.svg" alt=""></a>-->
         <a href="https://timerman.org/" target="_blank"> <img
           src="~/assets/images/Main/Partners/Timerman.svg"
           alt=""></a>
@@ -11,17 +11,17 @@
       <div class="Footer__main Footer__structure">
         <h2>Главное</h2>
         <ul>
-          <li><a href="#distance">Дистанции</a></li>
+          <li><a href="#distance">Гонки</a></li>
           <li><a href="#schedule">Расписание</a></li>
-          <li><a href="#timerkids">Timerkids</a></li>
+          <li><a href="#FAQ">FAQ</a></li>
         </ul>
       </div>
       <div class="Footer__info Footer__structure">
         <h2>Информация</h2>
         <ul>
           <li><a href="#location">Как добраться</a></li>
-          <li><a href="#legends">Легенды Казани</a></li>
-          <li><a href="#FAQ">Вопросы и ответы</a></li>
+          <li><a href="#main">Где жить</a></li>
+          <li><a href="#legends">Чем заняться</a></li>
         </ul>
       </div>
       <div class="Footer__contacts Footer__structure">
