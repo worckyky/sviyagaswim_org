@@ -128,20 +128,24 @@ export default {
       @media (max-width: 756px) {
         -webkit-text-stroke-color: $black;
       }
+      @media (max-width: 475px) {
+        -webkit-text-stroke-color: $white;
+      }
 
     }
     &__content {
       display: flex;
       //justify-content: space-between;
       &-elem {
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        //box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        border: 1px solid #EBEBEB;
         margin-right: 24px;
         z-index: 3;
         width: 120px;
         border-radius: 6px;
         @media (max-width: 756px) {
           width: 100px;
-          margin-right: 16px;
+          margin-right: 8px;
         }
         &:nth-last-child(1) {
           margin-right: 0;

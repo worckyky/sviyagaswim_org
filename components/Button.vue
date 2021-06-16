@@ -37,5 +37,9 @@
       border: 1px solid $yellow;
       color: $yellow;
     }
+    @media (max-width: 475px) {
+      padding: 12px 16px;
+      font-size: 16px;
+    }
   }
 </style>

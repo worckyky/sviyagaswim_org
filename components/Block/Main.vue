@@ -7,7 +7,7 @@
         </div>
         <p class="Main__data">2 мая 2021</p>
         <h1 class="Main__title">
-          SVIYAGA FEST
+          SVIYAGA <br v-if="checkWidth"> FEST
         </h1>
         <Button>Зарегистрироваться</Button>
       </div>
@@ -37,7 +37,14 @@ import Button from "@/components/Button";
 import Timer from "@/components/Timer";
 
 export default {
-  components: {Timer, Button}
+  components: {Timer, Button},
+  computed: {
+    checkWidth() {
+      if (window.innerWidth <= 450) {
+        return true
+      }
+    }
+  }
 }
 </script>
 
@@ -54,7 +61,8 @@ export default {
   height: 600px;
   margin: 24px;
   z-index: 0;
-  @include imageShadow;
+  //@include imageShadow;
+  border: 1px solid #EBEBEB;
   border-radius: 6px;
   @media (max-width: 756px) {
     margin: unset;
@@ -67,15 +75,16 @@ export default {
     z-index: -1;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -200px;
     width: 915px;
     height: 601px;
     background: url("assets/images/Main/Vector.png") no-repeat;
+    opacity: 0.8;
     @media (max-width: 920px) {
       left: -300px;
     }
     @media (max-width: 475px) {
-      left: -450px;
+      left: -600px;
     }
   }
 
@@ -109,8 +118,8 @@ export default {
       @media (max-width: 756px) {
         width: 180px;
       }
-      &:nth-child(1) {
-        margin-right: 16px;
+      @media (max-width: 756px) {
+        width: 140px;
       }
     }
   }
@@ -122,16 +131,13 @@ export default {
     margin-bottom: 16px;
     @media (max-width: 475px) {
       margin-bottom: 8px;
+      font-size: 16px;
     }
   }
 
   &__title {
     @include titleH1;
     margin-bottom: 48px;
-    font-size: 80px;
-    @media (max-width: 475px) {
-      font-size: 40px;
-    }
   }
   &__timer {
     display: flex;

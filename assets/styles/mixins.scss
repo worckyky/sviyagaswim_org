@@ -21,7 +21,7 @@
 // H1 Title
 @mixin titleH1() {
   font-family: Swiyaga, serif;
-  font-size: 80px;
+  font-size: 64px;
   line-height: 80px;
   color: $black;
   font-weight: 700;
@@ -29,6 +29,10 @@
   @media (max-width: 920px) {
     font-size: 52px;
     line-height: 64px;
+  }
+  @media (max-width: 475px) {
+    font-size: 36px;
+    line-height: 48px;
   }
 
 }

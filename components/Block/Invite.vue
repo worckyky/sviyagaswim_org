@@ -62,11 +62,12 @@ export default {
 
 .Invite {
   padding: 100px 0;
-  min-height: 768px;
+  min-height: 600px;
   position: relative;
   overflow: hidden;
   @media (max-width: 475px) {
-    height: 1240px;
+    min-height: unset;
+    height: 1300px;
   }
   &__container {
     @include layout;
@@ -107,7 +108,7 @@ export default {
     }
     &-elem {
       flex: 40%;
-      height: 200px;
+      min-height: 160px;
       @include imageShadow;
       margin-bottom: 56px;
       background-color: $white;
@@ -132,12 +133,12 @@ export default {
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       h3 {
         font-family: Swiyaga, Serif;
         font-size: 18px;
         line-height: 24px;
         text-transform: uppercase;
+        margin-bottom: 16px;
       }
       p {
         font-size: 14px;
