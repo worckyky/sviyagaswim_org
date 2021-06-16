@@ -189,7 +189,7 @@ export default {
 
   &__stories {
     grid-column: 5 / 13;
-    height: 700px;
+    min-height: 700px;
     background-color: $white;
     border-radius: 6px;
     overflow: hidden;
@@ -221,10 +221,11 @@ export default {
     }
 
     p {
-      height: 340px;
-      overflow-y: scroll;
       font-size: 18px;
-      line-height: 28px;
+      line-height: 26px;
+      @media (max-width: 475px) {
+        font-size: 14px;
+      }
     }
 
     //&::after {
@@ -241,6 +242,9 @@ export default {
     margin: 16px 0;
     font-size: 18px;
     line-height: 26px;
+    @media (max-width: 475px) {
+      font-size: 14px;
+    }
     div {
       margin-bottom: 16px;
     }

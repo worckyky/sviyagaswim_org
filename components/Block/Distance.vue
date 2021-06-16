@@ -203,7 +203,7 @@ export default {
         right: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0) -10.5%, #000000 180.75%);;
+        background: rgba(0, 0, 0, 0.4);
       }
       @media (max-width: 756px) {
         width: 100%;

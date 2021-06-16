@@ -1,13 +1,14 @@
 <template>
   <div class="Location" id="location">
-
     <iframe
-      src="https://yandex.ru/map-widget/v1/?um=constructor%3A094cf5daaea39906da77a64e565893ce9d22187f30aa76685bcc63dbee884558&amp;source=constructor"
+      v-if="show"
+      src="https://yandex.ru/map-widget/v1/?um=constructor%3A0f65169da2a00b37268a7a0b1485a3dd4cc65d9d8fb2a432f94b35fa2806739e&amp;source=constructor"
       :width="map.width"
       :height="map.height"
       frameborder="0"
       class="Location__map"
-    ></iframe>
+    >
+    </iframe>
     <div class="Location__container">
       <h2 class="Location__title">
         Как добраться
@@ -42,6 +43,7 @@ export default {
         width: '100%',
         height: '600'
       },
+      show: false,
       activeTab: 1,
       tabs: [{
         id: 1,
@@ -85,6 +87,9 @@ export default {
       }]
     }
   },
+  mounted(){
+    setTimeout(() => this.show = true, 2000);
+  },
   methods: {
     setActive(id) {
       this.activeTab = id
@@ -111,6 +116,7 @@ export default {
     display: flex;
     justify-content: center;
   }
+
   &__map {
     position: absolute;
     top: 0;
@@ -135,8 +141,7 @@ export default {
       margin: 0 16px;
       max-width: 756px;
       width: 100%;
-      padding: 0 16px;
-    ;
+      padding: 0 16px;;
     }
   }
 
@@ -153,6 +158,7 @@ export default {
     @media (max-width: 920px) {
       flex-direction: column;
     }
+
     &-tabs {
       display: flex;
       flex-direction: column;
@@ -163,18 +169,22 @@ export default {
         flex-direction: column;
       }
     }
+
     &-text {
       padding: 24px;
       overflow-y: auto;
       max-height: 420px;
+
       p {
         font-size: 16px;
         line-height: 24px;
         margin-bottom: 24px;
-        &:nth-last-child(1){
+
+        &:nth-last-child(1) {
           margin-bottom: 0;
         }
       }
+
       @media (max-width: 756px) {
         padding: 16px;
       }
@@ -196,18 +206,22 @@ export default {
       -ms-transition: ease-in-out 0.2s;
       -o-transition: ease-in-out 0.2s;
       transition: ease-in-out 0.2s;
+
       &:hover {
         background-color: rgba(247, 194, 77, 0.1);
       }
+
       &:nth-last-child(1) {
         border-bottom: none;
       }
+
       img {
         margin-bottom: 8px;
         @media (max-width: 756px) {
           width: 40px;
         }
       }
+
       @media (max-width: 920px) {
         width: 33.3%;
         border: 1px solid #C4C4C4;
@@ -226,9 +240,11 @@ export default {
           margin: 0 16px 0 0;
         }
       }
+
       &_active {
         background-color: $yellow;
         color: $white;
+
         &:hover {
           background-color: $yellow;
         }
