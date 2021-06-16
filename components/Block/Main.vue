@@ -9,7 +9,7 @@
         <h1 class="Main__title">
           SVIYAGA <br v-if="checkWidth"> FEST
         </h1>
-        <Button>Зарегистрироваться</Button>
+        <Button route="https://timerman.org/">Зарегистрироваться</Button>
       </div>
       <div class="Main__timer">
         <Timer endtime="July 9, 2021 00:00:00"
